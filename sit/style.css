@@ -39,6 +39,13 @@ a:hover{
 	color: white;
 	background:linear-gradient(to right, white, black, black);
 }
+.w60{
+	width: 60%;
+	height: 100%;
+	text-align: center;
+	padding-top: 50px;
+	box-sizing: border-box;
+}
 .button1{
 	text-decoration: none; 
 	color:whitesmoke;
