@@ -43,6 +43,7 @@ function showUsers(){
 	`
 	users_table.innerHTML = lop;
 }
+showUsers();
 
 function changeName(nae){
 	name = nae;
