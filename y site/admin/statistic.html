@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/display-message.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Shop</title>
+</head>
+<style>
+  #boom{
+    margin-top: 120px;
+    border: 2px solid black;
+    width: 200px;
+    display: none;
+  }
+</style>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html">Admin</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Statistic</a>
+                  </li>
+                </ul>
+                <button class="btn btn-light" onclick="tp()">Unlogin</button>
+            </nav>
+                <h2 style="margin-top: 160px;">Statistic</h2>
+                <div id="cho">
+              </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Назва</th>
+              <th>Ціна</th>
+              <th>Фотографія</th>
+              <th>Кількість</th>
+              <th>Вилучити</th>
+              <th>Змінити</th>
+            </tr>
+          </thead>
+          <tbody id="pok">
+
+          </tbody>
+        </table>
+      </div>
+        </div>
+        <form>
+            <button type="button" class="btn btn-secondary" onclick="refresh()">Оновити!</button>
+            <button type="button" class="btn btn-danger" onclick="alert()">Видалити!</button>
+        </form>
+        <div class="bd-callout bd-callout-warning" id="boom">
+            Ви впевнені?
+            <button type="button" class="btn btn-success" onclick="del()">Так</button>
+            <button type="button" class="btn btn-danger" onclick="hide()">Ні</button>
+          </div>
+    </div>
+</body>
+<script src="./js/admin-stat.js">
+</script>
+<script src="../js/admin-edit.js"></script>
+<script src="../js/display-message.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</html>
