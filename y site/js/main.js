@@ -2,7 +2,25 @@
 
 function show(){
     var body = document.getElementById("car")
-    let num = JSON.parse(localStorage.getItem("num"));
+    //тут всі товари
+    let products = JSON.parse(localStorage.getItem("products"));
+    //перевіряємо чи список товарів пустий
+    if(products == null){
+        //якщо пустий то рівний порожньому масиву
+        products = []
+    }
+    let products_html = ``;
+
+    products.forEach(function(product, index) {
+        //тут пиши логіку - Немає в наявності і інше
+
+        products_html +=
+        `
+            //тут додавай верску картки
+        `
+    });
+
+    /*
     let vas = ``;
     for(var x = 0;x < num;x++){
         var jora = JSON.parse(localStorage.getItem(`prodic${x}`));
@@ -25,8 +43,8 @@ function show(){
         </div>
         `
     }
-    
-    body.innerHTML = vas;
+    */
+    body.innerHTML = products_html;
 }
 
 function up(){

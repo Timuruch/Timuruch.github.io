@@ -10,16 +10,29 @@ function tp(){
 
 
 function add(){
-    var name = document.getElementById("name").value;
-    var image = document.getElementById("image").value;
-    var price = document.getElementById("price").value;
-    var count = document.getElementById("count").value;
-    var a = [name, image, price, count];
+    //створюємо новий товар як об'єкт
+    const new_product ={
+        name:  document.getElementById("name").value,
+        image: document.getElementById("image").value,
+        price: document.getElementById("price").value,
+        count: document.getElementById("count").value,
+    } 
     
-    let num = JSON.parse(localStorage.getItem("num"));
-    localStorage.setItem(`prodic${num}`, JSON.stringify(a)); 
-    num = num + 1;
-    localStorage.setItem("num", JSON.stringify(num));
+    //дістаємо всі збережені товари як масив (може бути пустим)
+    let products = JSON.parse(localStorage.getItem("products"));
+    //перевіряємо чи пустий
+    if(products == null){
+        //якщо пустий то рівний порожньому масиву
+        products = []
+    }
+    //додаємо в кінець вже існуючого списку новий товар
+    products.push(new_product)
+    
+    //зберігаємо змінений масив (з новим товаром)
+    localStorage.setItem(`products`, JSON.stringify(products)); 
+
+    //num тут буде довжина масиву (кількість товарів);
+
     displayMessage('message-success', 'Admin', 'Ваш товар було успішно добавлено!', 4000);
     setTimeout(function (){
         location.reload();
