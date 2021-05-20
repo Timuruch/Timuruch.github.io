@@ -13,10 +13,25 @@ function show(){
 
     products.forEach(function(product, index) {
         //тут пиши логіку - Немає в наявності і інше
+        console.log(product)
+        let nav = `<p class="card-text" style="color: green;">В наявності</p>`
+        let but = `<a href="#" class="btn btn-primary" onclick="order(${index})">Купити</a>`
+        if(products[index].count == 0){
+            nav = `<p class="card-text" style="color: red;">Немає в наявності</p>`
+            but = `<a href="#" class="btn btn-primary">Повідомити коли буде у наявності</a>`
+        }
 
         products_html +=
         `
-            //тут додавай верску картки
+        <div class="card" style="width: 18rem;margin-top: 120px;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${products[index].name}</h5>
+                <p class="card-text">${products[index].price}UAH</p>
+                ${nav}
+                ${but}
+            </div>
+        </div>
         `
     });
 
@@ -53,6 +68,11 @@ function up(){
     var jora = JSON.parse(localStorage.getItem(`prodic${num}`));
     let allka = ``;
 
+}
+
+function order(index){
+    localStorage.setItem("temp_order", JSON.stringify(index))
+    window.location = "order.html";
 }
 
 show()
