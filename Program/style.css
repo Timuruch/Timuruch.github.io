@@ -6,12 +6,14 @@ body{
 
 .slider{
     width: 600px;
+    overflow: hidden;
     height: 300px;
     border: 1px solid black;
 }
 
 .slides{
     display: flex;
+    overflow: hidden;
     transition: margin .8s ease-in-out;
 }
 
