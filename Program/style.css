@@ -37,7 +37,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
 }
 
 .arrow{
@@ -50,5 +49,6 @@ body{
 
 
 .soc{
-    margin-right: -5500px;
+    margin-left: -550px;
+    margin-top: -130px;
 }
