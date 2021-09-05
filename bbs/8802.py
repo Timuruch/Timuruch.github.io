@@ -1,2 +1,2 @@
-print("Oficial Timuruch games center bbs server")
+print("Oficial Timuruch games Sevrver")
 print("For today none ):")
