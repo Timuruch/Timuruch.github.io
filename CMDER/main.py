@@ -10,6 +10,8 @@ password = p.read()
 print("CMDER beta 1.0")
 print("Made by Timuruch")
 
+x = 0
+
 while x == 0:
     print("Welcome %s" % name)
     passw = input("Enter password:")
