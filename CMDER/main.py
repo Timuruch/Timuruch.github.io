@@ -62,5 +62,4 @@ while True:
         print("Welcome to magazine:")
         print("[1] BBS for CMDER")
     elif(output == "clear"):
-        clear = lambda: os.system('cls') 
-        clear()   
+        os.system('cls') 
