@@ -1,5 +1,6 @@
 import time
 import random
+import os
 import requests
 
 n = open('user/name.txt')
@@ -60,4 +61,6 @@ while True:
     elif(output == "magazine"):
         print("Welcome to magazine:")
         print("[1] BBS for CMDER")
-        
+    elif(output == "clear"):
+        clear = lambda: os.system('cls') 
+        clear()   
