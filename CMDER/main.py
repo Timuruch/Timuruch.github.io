@@ -109,8 +109,8 @@ while True:
                 elif(dd == "2"):
                     nnnam = input("Enter name:")
                     pppas = input("Enter pass:")
-                    vvv = open("user/name.txt", 'w')
-                    ppp = open("user/pass.txt", 'w')
+                    vvv = open("user/tname.txt", 'w')
+                    ppp = open("user/tpass.txt", 'w')
                     lll = open("active.txt", 'w')
                     vvv.write(nnnam)
                     ppp.write(pppas)
