@@ -32,7 +32,6 @@ x = 0
 
 while x == 0:
     passw = input("Enter password:")
-
     if(password == passw):
         print("You sucessfuly entered")
         x = 1
@@ -129,4 +128,3 @@ while True:
         pass
     else:
         output = update(output)
-        print("Unknown command")
