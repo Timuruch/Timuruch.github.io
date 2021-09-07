@@ -41,7 +41,6 @@ while x == 0:
 
 while True:
     output = input("[?]")
-    output = update(output)
     if(output == "get_started"):
         print("Welcome newfag")
         print("This is CMDER")
@@ -129,4 +128,5 @@ while True:
     elif(output == 0):
         pass
     else:
+        output = update(output)
         print("Unknown command")
