@@ -39,7 +39,7 @@ while x == 0:
 
 while True:
     output = input("[?]")
-    update()
+    update(output)
     if(output == "get_started"):
         print("Welcome newfag")
         print("This is CMDER")
