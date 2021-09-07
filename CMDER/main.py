@@ -94,7 +94,7 @@ while True:
             pp = 0
             while pp == 0:
                 dd = input("[?]")
-                if(dd == "[1]"):
+                if(dd == "1"):
                     nnam = input("Enter name:")
                     ppas = input("Enter pass:")
                     if(nnam == tn and ppas == tp):
@@ -103,15 +103,15 @@ while True:
                         lll.write("yes")
                         lll.close()
                         print("You succesfuly entered")
-                elif(dd == "[2]"):
+                elif(dd == "2"):
                     nnnam = input("Enter name:")
                     pppas = input("Enter pass:")
                     vvv = open("user/name.txt", 'w')
                     ppp = open("user/pass.txt", 'w')
-                    lll = open("active.txt")
+                    lll = open("active.txt", 'w')
                     vvv.write(nnnam)
                     ppp.write(pppas)
-                    lll.write("yes")
+                    lll.write('yes')
                     vvv.close()
                     ppp.close()
                     lll.close()
