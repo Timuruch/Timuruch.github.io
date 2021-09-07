@@ -1,7 +1,15 @@
+import requests
+import sys
+
 if(output == "new_from_update"):
     print("That's Second test update of CMDER")
     print("Distributive version alpha v1.5")
 elif(output == "update_main"):
-    print("Hello")
-elif(output 1= "new_from_update" or output != "update_main"):
+    e=open(r'main.py',"wb")
+    rf = requests.get("https://timuruch.github.io/CMDER/main.py")
+    e.write(rf.content)
+    e.close()
+    sys.exit()
+    print("main.py downloaded")
+elif(output != "new_from_update" and output != "update_main"):
     print("Unknown command")
