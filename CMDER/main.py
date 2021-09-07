@@ -5,6 +5,8 @@ import os
 import sys
 import requests
 
+
+ppo = 1
 m = open('active.txt')
 tn = open('user/tname.txt')
 tp = open('user/tpass.txt')
@@ -39,7 +41,7 @@ while x == 0:
 
 while True:
     output = input("[?]")
-    update(output)
+    output = update(output)
     if(output == "get_started"):
         print("Welcome newfag")
         print("This is CMDER")
@@ -124,5 +126,7 @@ while True:
         sys.exit()
     elif(output == "update"):
         import setup_or_update
+    elif(output == 0):
+        pass
     else:
         print("Unknown command")
