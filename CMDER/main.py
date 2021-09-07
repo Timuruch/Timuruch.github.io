@@ -1,6 +1,8 @@
 import time
 import random
+from update import *
 import os
+import sys
 import requests
 
 m = open('active.txt')
@@ -37,6 +39,7 @@ while x == 0:
 
 while True:
     output = input("[?]")
+    update()
     if(output == "get_started"):
         print("Welcome newfag")
         print("This is CMDER")
@@ -85,7 +88,7 @@ while True:
         os.system('cls') 
     elif(output == "tlive"):
         if(mm == "yes"):
-            print("Welcome back %s" % tn)
+            print("Welcome back %s" % tname)
         elif(mm == "no"):
             print("You don't logined Yet")
             print("[1] Login")
@@ -99,7 +102,7 @@ while True:
                     ppas = input("Enter pass:")
                     if(nnam == tn and ppas == tp):
                         pp = 2
-                        lll = open("active.txt")
+                        lll = open("active.txt", 'w')
                         lll.write("yes")
                         lll.close()
                         print("You succesfuly entered")
@@ -117,4 +120,9 @@ while True:
                     lll.close()
                     print("User succesfuly created")
                     print("To work more stable requit please")
-
+    elif (output == "exit"):
+        sys.exit()
+    elif(output == "update"):
+        import setup_or_update
+    else:
+        print("Unknown command")
