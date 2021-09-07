@@ -20,7 +20,7 @@ print("Welcome %s" % name)
 
 if(mm == "no"):
     print("You don't logined in Tlive")
-    b = 0
+    b = 2
 elif(mm == "yes"):
     print("Logined")
     b = 1
