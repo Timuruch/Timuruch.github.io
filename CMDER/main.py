@@ -20,8 +20,10 @@ print("Welcome %s" % name)
 
 if(mm == "no"):
     print("You don't logined in Tlive")
+    b = 0
 elif(mm == "yes"):
     print("Logined")
+    b = 1
 x = 0 
 
 while x == 0:
@@ -83,39 +85,36 @@ while True:
         os.system('cls') 
     elif(output == "tlive"):
         if(mm == "yes"):
-            print("Welcome %s" % tn)
+            print("Welcome back %s" % tn)
         elif(mm == "no"):
-            if(m == "yes"):
-                print("Welcome back %s" % tn)
-            elif(m == "no"):
-                print("You don't logined Yet")
-                print("[1] Login")
-                print("[2] Register")
-                print("Note: Tlive is local account and work only with computer where you signed")
-                pp = 0
-                while pp == 0:
-                    dd = input("[?]")
-                    if(dd == "[1]"):
-                        nnam = input("Enter name:")
-                        ppas = input("Enter pass:")
-                        if(nnam == tn and ppas == tp):
-                            pp = 2
-                            lll = open("active.txt")
-                            lll.write("yes")
-                            lll.close()
-                            print("You succesfuly entered")
-                    elif(dd == "[2]"):
-                        nnnam = input("Enter name:")
-                        pppas = input("Enter pass:")
-                        vvv = open("user/name.txt", 'w')
-                        ppp = open("user/pass.txt", 'w')
+            print("You don't logined Yet")
+            print("[1] Login")
+            print("[2] Register")
+            print("Note: Tlive is local account and work only with computer where you signed")
+            pp = 0
+            while pp == 0:
+                dd = input("[?]")
+                if(dd == "[1]"):
+                    nnam = input("Enter name:")
+                    ppas = input("Enter pass:")
+                    if(nnam == tn and ppas == tp):
+                        pp = 2
                         lll = open("active.txt")
-                        vvv.write(nnnam)
-                        ppp.write(pppas)
                         lll.write("yes")
-                        vvv.close()
-                        ppp.close()
                         lll.close()
-                        print("User succesfuly created")
-                        print("To work more stable requit pleas")
+                        print("You succesfuly entered")
+                elif(dd == "[2]"):
+                    nnnam = input("Enter name:")
+                    pppas = input("Enter pass:")
+                    vvv = open("user/name.txt", 'w')
+                    ppp = open("user/pass.txt", 'w')
+                    lll = open("active.txt")
+                    vvv.write(nnnam)
+                    ppp.write(pppas)
+                    lll.write("yes")
+                    vvv.close()
+                    ppp.close()
+                    lll.close()
+                    print("User succesfuly created")
+                    print("To work more stable requit please")
 
