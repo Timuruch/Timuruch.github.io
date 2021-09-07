@@ -1,3 +1,2 @@
 if(output == "new_from_update"):
     print("None")
-    return 0

@@ -3,4 +3,3 @@ if(output == "new_from_update"):
     print("And it's test so if you read this message")
     print("you hacker")
     print("Or timuruch")
-    return 0
