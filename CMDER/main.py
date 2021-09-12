@@ -83,7 +83,6 @@ while True:
             rf = requests.get("https://timuruch.github.io/Magazine/magazine.txt")
             e.write(rf.content)
             e.close()
-            sys.exit()
             a = open("magazine.txt")
             t = a.read()
             exec(t)
@@ -136,4 +135,4 @@ while True:
         pass
     else:
         output = update(output)
-        magazine(output)
+        output = magazine(output)
