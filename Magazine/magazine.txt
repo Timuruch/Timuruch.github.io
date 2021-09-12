@@ -1,0 +1,18 @@
+print("[1] BBS for CMDER")
+print("[2] Antivirus NVIC for CMDER")
+print("[3] Lrego")
+
+c = 0
+
+while c == 0:
+    bb = input("[?]")
+    if (bb == "1"):
+        pass
+    elif (bb == "2"):
+        pass
+    elif (bb == "3"):
+        pass
+    elif (bb == "cancel"):
+        c = 1
+    else:
+        print("Wrong command")

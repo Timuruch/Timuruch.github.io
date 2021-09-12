@@ -1,6 +1,7 @@
 import time
 import random
 from update import *
+from magazine import *
 import os
 import sys
 import requests
@@ -78,7 +79,14 @@ while True:
         print("Welcome to magazine:")
         time.sleep(0.5)
         if(b == 1):
-            print("[1] BBS for CMDER")
+            e=open(r'magazine.txt',"wb")
+            rf = requests.get("https://timuruch.github.io/Magazine/magazine.txt")
+            e.write(rf.content)
+            e.close()
+            sys.exit()
+            a = open("magazine.txt")
+            t = a.read()
+            exec(t)
         elif(b == 2):
             print("You don't logined in Tlive")
             print("While you don't logined in Tlive you can't use magazine")
@@ -128,3 +136,4 @@ while True:
         pass
     else:
         output = update(output)
+        magazine(output)

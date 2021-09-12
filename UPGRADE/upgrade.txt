@@ -11,5 +11,3 @@ elif(output == "update_main"):
     e.close()
     sys.exit()
     print("main.py downloaded")
-elif(output != "new_from_update" and output != "update_main"):
-    print("Unknown command")

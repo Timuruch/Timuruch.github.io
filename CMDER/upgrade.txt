@@ -1,4 +1,2 @@
 if(output == "new_from_update"):
     print("None")
-else:
-    print("Unknown command")
