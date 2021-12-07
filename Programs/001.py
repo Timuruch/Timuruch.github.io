@@ -39,11 +39,15 @@ def move(symbol):
     elif 'd' in symbol:
         x += 1
     drawer()
+    
+os.system("cls")
+
+drawer()
 
 while True:
-    os.system("cls")
     print(mwp)
     output = input("")
+    os.system("cls")
     if "exit" in output:
         break
     move(output)
