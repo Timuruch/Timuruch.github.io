@@ -1,4 +1,5 @@
 import random
+import sys
 
 while True:
     x = random.randint(1, 100)
@@ -6,4 +7,6 @@ while True:
     value = input(str(x) + " + " + str(y) + " = ")
     if x+y == int(value):
         print("You win. Next round!")
+    elif value == "exit":
+        sys.exit()
 
