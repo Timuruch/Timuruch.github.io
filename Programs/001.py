@@ -29,7 +29,7 @@ def drawer():
 ''' % (poc, loc))
 
 def move(symbol):
-    global x,y
+    global x,y,poc ,loc, mwp
     if 'w' in symbol:
         y -= 1
     elif 's' in symbol:
@@ -38,11 +38,48 @@ def move(symbol):
         x -= 1
     elif 'd' in symbol:
         x += 1
-    drawer()
-    
+    poc = ""
+    loc = ""
+    if x == 1 and y == 1:
+        poc = "x "
+        loc = "  "
+    elif x == 2 and y == 1:
+        poc = " x"
+        loc = "  "
+    elif x == 1 and y == 2:
+        poc = "  "
+        loc = "x "
+    elif x == 2 and y == 2:
+        poc = "  "
+        loc = " x"
+    mwp = ('''
+####
+#%s#
+#%s#
+####
+''' % (poc, loc))
+
 os.system("cls")
 
-drawer()
+if x == 1 and y == 1:
+    poc = "x "
+    loc = "  "
+elif x == 2 and y == 1:
+    poc = " x"
+    loc = "  "
+elif x == 1 and y == 2:
+    poc = "  "
+    loc = "x "
+elif x == 2 and y == 2:
+    poc = "  "
+    loc = " x"
+mwp = ('''
+####
+#%s#
+#%s#
+####
+''' % (poc, loc))
+
 
 while True:
     print(mwp)
