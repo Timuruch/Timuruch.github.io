@@ -1,2 +1,0 @@
-if (output == "test"):
-    print("This is developer test of magazine update")
