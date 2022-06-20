@@ -2,6 +2,7 @@ import requests
 import sys
 import os
 import json
+import time
 
 ver = json.load(open("version.json"))
 
@@ -24,8 +25,12 @@ else:
     input("Update TNPS. Click enter to exit.")
     sys.exit()
 while True:
+    print("[1] New mode (TNPS)")
+    print("[2] Old mode (BBS, News surfer)")
+    print("[3] Download (Boot) mode (TNPS)")
+    print("[4] Exit (To usuall Terminal)")
     output = input("[?]")
-    if output == "news":
+    if output == "1":
         channel = input("Enter code: ")
         url = "https://timuruch.github.io/TNPS/TEXT/%s.json" % channel
         r = requests.get(url)
@@ -38,7 +43,7 @@ while True:
                 print(x)
         except:
             print("An error occured")
-    elif output == "archive":
+    elif output == "2":
         channel = input("Enter code:")
         url = "https://timuruch.github.io/bbs/%s.py" % channel
         r = requests.get(url)
@@ -52,15 +57,11 @@ while True:
             os.remove("text.py")
         except:
             print("An error occured")
-    elif output == "help":
-        print("Help menu")
-        print('''archive - opens servers on old protocol (like news surfer or BBS) for example
-        old Timuruch (now Redish) anoucments server code 8801''')
-        print('''news - open servers on new protocol (TNPS 0.2) all codes are in replacing
-        to new protocol''')
-        print('''exit - exits from tnps terminal (to usuall terminal)''')
-    elif output == "exit":
+    elif output == "3":
+        print("Download (boot) mode")
+    elif output == "4":
         print("Closing tnps terminal")
+        time.sleep(0.5)
         break
     else:
         print("Wrong tnps terminal command!(Try to use 'help to see all commands')")
