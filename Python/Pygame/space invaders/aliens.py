@@ -1,4 +1,3 @@
-from pickle import FALSE
 from settings import *
 from random import *
 import pygame
@@ -24,7 +23,7 @@ class aliens:
             else:
                 x += SIZE
 
-    def test_bullet(self, bullets, score): #size 50x50
+    def test_bullet(self, bullets): #size 50x50
         try:
             for i in range(0, len(self.aliens)):
                 x, y = self.aliens[i]
@@ -37,9 +36,9 @@ class aliens:
                             print("Touch")
                             del self.aliens[i]
                             del bullets[c]
-                            score += 1
+                            data = (bullets, True)
+                            return data
                             break
-            return bullets, score
         except:
             pass
 

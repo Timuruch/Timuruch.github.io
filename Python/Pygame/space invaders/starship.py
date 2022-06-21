@@ -1,6 +1,6 @@
 from settings import *
-from random import *   
-from button import *
+from random import *  
+import json 
 import pygame
 
 class starship:
@@ -16,6 +16,7 @@ class starship:
         self.movement = False
         self.gameover = False
         self.score = 0
+        self.hi_score = json.load(open("score.json"))
         self.bullets = []
 
     def play_demo(self):
@@ -37,7 +38,7 @@ class starship:
         text = fnt.render(str(text), False, (255, 255, 255))
         self.w.blit(text, pos)
 
-
+ 
     def draw(self):
         l = len(self.bullets)
         if self.shoot and l <= MAX_BULLETS:
@@ -58,7 +59,8 @@ class starship:
                 pass
         self.w.blit(self.img, (self.x, self.y))
         self.text("HI-SCORE", (590, 50), 50)
-        self.text("0", (760, 90), 50)
+        self.hi_score = json.load(open("score.json"))
+        self.text(max(self.hi_score), (760, 90), 50)
         self.text("SCORE", (660, 130), 50)
         self.text(self.score, (760, 170), 50)
         if not self.start and not self.gameover:
@@ -67,6 +69,8 @@ class starship:
             self.text("Press enter to restart", (150, HEIGHT//2-10), 50)
         if self.gameover:
             self.text("Game Over", (WIDTH//2-120, HEIGHT//2-100), 50)
+            self.hi_score.append(self.score)
+            json.dump(open("score.json"), self.score)
 
 
     def stat(self, b):
@@ -86,11 +90,11 @@ class starship:
                     self.gameover = True
                     break
 
-    def change_bullet(self, bullets=False, score=0):
-        if bullets:
+    def change_bullet(self, data=False):
+        if data:
+            bullets, score = data
             self.bullets = bullets
-        if score != 0:
-            self.score = score
+            self.score += 1
 
             
     def move(self):
