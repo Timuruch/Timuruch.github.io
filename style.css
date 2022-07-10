@@ -4,11 +4,17 @@ body{
 }
 
 a, a:visited{
-    color: white;
     text-decoration: none;
 }
 
-.header{
-    color: black;
+.About{
+    text-align: center;
+    margin: 5px;
+}
+
+.text{
+    float: right;
+    display: block;
+    margin: 5px;
 }
 

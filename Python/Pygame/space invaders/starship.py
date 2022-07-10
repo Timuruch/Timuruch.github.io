@@ -16,6 +16,7 @@ class starship:
         self.movement = False
         self.gameover = False
         self.score = 0
+        self.index = 1
         self.hi_score = json.load(open("score.json"))
         self.bullets = []
 
@@ -38,7 +39,15 @@ class starship:
         text = fnt.render(str(text), False, (255, 255, 255))
         self.w.blit(text, pos)
 
- 
+
+    def blow(self, x, y):
+        if int(self.index) >= 5:
+            self.index = 1
+        else:
+            direc = str("assets/blow/blow%s.png" % int(self.index))
+            self.w.blit(self.pygame.image.load(str(direc)), (x, y))
+            self.index += 1
+
     def draw(self):
         l = len(self.bullets)
         if self.shoot and l <= MAX_BULLETS:
@@ -70,7 +79,7 @@ class starship:
         if self.gameover:
             self.text("Game Over", (WIDTH//2-120, HEIGHT//2-100), 50)
             self.hi_score.append(self.score)
-            json.dump(open("score.json"), self.score)
+            json.dump(self.hi_score, open("score.json", 'w'))
 
 
     def stat(self, b):
@@ -82,12 +91,14 @@ class starship:
     def test_bullet(self, abullets=[]):
         xp = self.x + self.size[0]
         yp = self.y + self.size[1]
+
         for i in abullets:
             x, y = i
             if self.x <= x and self.y <= y:
                 if x <= xp and y <= yp:
                     self.start = False
                     self.gameover = True
+                    self.blow(x, y)
                     break
 
     def change_bullet(self, data=False):
