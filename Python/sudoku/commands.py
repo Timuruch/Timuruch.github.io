@@ -3,6 +3,7 @@ from tkinter import filedialog
 from tkinter import *
 from sudoku import *
 from settings import *
+import json
 
 canvas = 0
 tk = 0
@@ -15,14 +16,6 @@ def set_vars(c, t):
     label = Label(tk, text="", bd=1, relief=SUNKEN, anchor=E)
     label.pack(fill=X, side=BOTTOM, ipady=2)
 
-def set_game(sudoku):
-    global s
-    try:
-        s = Sudoku(canvas, tk, sudoku)
-        s.draw_sudoku()
-    except:
-        pass
-
 def start_enter(e):
     label["text"] = "Press to start"
 
@@ -33,12 +26,15 @@ def load_enter(e):
     label["text"] = "Press to load your sudoku"
 
 def load():
+    global s
     sudoku_file = filedialog.askopenfilename(initialdir='/', title='Open file', 
         filetypes=(('SUDOKU file', '*.SUDOKU'), ('All files', '*.*')))
     if not sudoku_file:
         messagebox.showinfo('Error', 'You must to choose file!')
     else:
-        return sudoku_file
+        sudoku = json.load(open(sudoku_file))
+        s = Sudoku(canvas, tk, sudoku)
+        s.draw_sudoku()
 
 def save_enter(e):
     label["text"] = "Press to save your sudoku"

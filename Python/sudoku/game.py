@@ -1,6 +1,5 @@
 from tkinter import *
 from settings import *
-import json
 import commands
 
 #Sudoku Game Class
@@ -13,15 +12,6 @@ class Game:
         self.tk = tk
         self.canvas = canvas
     
-    def load(self):
-        try:
-            s = commands.load()
-            sfile = open(s)
-            self.sudoku = json.load(sfile)
-            commands.set_game(self.sudoku)
-        except:
-            pass
-
     def draw_interface(self):
         commands.set_vars(self.canvas, self.tk)
         self.start_btn = Button(self.tk, text="Start",  bd=1, width=5, bg="white")
@@ -34,7 +24,7 @@ class Game:
         self.pause_btn.bind("<Enter>", commands.pause_enter)
         self.pause_btn.bind("<Leave>", commands.leave)
 
-        self.load_btn = Button(self.tk, text="Load",  bd=1, width=5, bg="white", command=self.load)
+        self.load_btn = Button(self.tk, text="Load",  bd=1, width=5, bg="white", command=commands.load)
         self.load_btn.place(x=WIDTH-50, y=70)
         self.load_btn.bind("<Enter>", commands.load_enter)
         self.load_btn.bind("<Leave>", commands.leave)
