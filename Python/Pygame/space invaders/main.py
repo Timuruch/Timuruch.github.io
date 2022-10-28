@@ -8,8 +8,8 @@ w = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption(TITLE)
 
 bg = pygame.image.load("assets/backgrounds/bg.png")
-s = starship(pygame, w, "assets/starships/starship.png", (50, 54))
 a = aliens(pygame, w)
+s = starship(pygame, w, "assets/starships/starship.png", (50, 54), a)
 
 run = True
 while run:

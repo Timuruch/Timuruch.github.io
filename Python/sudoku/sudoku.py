@@ -7,7 +7,8 @@ class Sudoku:
     def __init__(self, canvas, tk, sudoku):
         self.canvas = canvas
         self.tk = tk
-        self.sudok = sudoku
+        self.sudok = sudoku.copy()
+        self.cop = sudoku.copy()
         self.images = [] 
         self.image_buffer = []
         self.buffer = []
@@ -26,8 +27,13 @@ class Sudoku:
                 place = (row * 9) + col
                 text = self.buffer[place]
                 self.canvas.itemconfig(text, text=char)
+                p = self.cop[row]
+                p = list(p)
+                p[col] = char
+                p = "".join(p)
+                self.cop[row] = p
                 self.press_per_acess = False
-            except:
+            except Exception as e:
                 self.press_per_acess = False
                 
         self.press_per_acess = False
@@ -41,6 +47,7 @@ class Sudoku:
                 y -= 10
                 col = x // 20
                 row = y // 20
+                place = (row * 9) + col
                 l = self.sudok[row]
                 char = l[col]
                 self.data = (col, row)
@@ -97,9 +104,9 @@ class Sudoku:
     def test_sudoku(self):
         memory = []
         r_line = ""
-        print("Row test.")
-        for l in self.sudok:
-            for c in l:
+        index = 0
+        for j in self.cop:
+            for c in j:
                 for x in memory:
                     if x == c:
                         r_line += "!"
@@ -109,11 +116,20 @@ class Sudoku:
                     memory.append(c)
 
             memory = []
-            print(r_line)
+            for y in range(len(r_line)):
+                val = r_line[y]
+                if val == "!":
+                    place = (index*9) + y
+                    text = self.buffer[place]
+                    self.canvas.itemconfig(text, fill="red")
+                else:
+                    place = (index*9) + y
+                    text = self.buffer[place]
+                    self.canvas.itemconfig(text, fill="black")
+            index += 1
             r_line = ""
-        print("")
+            
 
-        print("Column test.")
         memory = []
         r_line = [
             "",
@@ -126,8 +142,8 @@ class Sudoku:
             "",
             ""
         ]
-        for v in range(len(self.sudok)):           
-            for i in range(len(self.sudok)):
+        for v in range(len(self.cop)):           
+            for i in range(len(self.cop)):
                 l = self.sudok[i]
                 c = l[v]
                 for x in memory:
@@ -138,6 +154,5 @@ class Sudoku:
                     r_line[i] += "."
                     memory.append(c)
             memory = []
-        
-        
+        #self.canvas.create_rectangle(x, y, x+RED_SIZE, y+RED_SIZE, width=3, outline="red")
         

@@ -2,7 +2,7 @@
 WIDTH = 800
 HEIGHT = 600
 TITLE = "Space invaders"
-FPS = 60
+FPS = 200
 
 #color settings
 WHITE = (255, 255, 255)
@@ -26,5 +26,3 @@ MAXX = 500
 MAXY = 350
 SIZE = 70
 MAX_ALIENS = 32
-MAX_ABULLETS = 10
-MAX_ABULLET_SPEED = 10

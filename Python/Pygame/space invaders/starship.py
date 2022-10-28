@@ -1,10 +1,12 @@
 from settings import *
 from random import *  
 import json 
+import sys
 import pygame
 
 class starship:
-    def __init__(self, pygame, w, image, size):
+    def __init__(self, pygame, w, image, size, aliens):
+        self.a = aliens
         self.pygame = pygame
         self.w = w
         self.img = self.pygame.image.load(image)
@@ -17,6 +19,7 @@ class starship:
         self.gameover = False
         self.score = 0
         self.index = 1
+        self.state = 0
         self.hi_score = json.load(open("score.json"))
         self.bullets = []
 
@@ -69,14 +72,28 @@ class starship:
         self.w.blit(self.img, (self.x, self.y))
         self.text("HI-SCORE", (590, 50), 50)
         self.hi_score = json.load(open("score.json"))
-        self.text(max(self.hi_score), (760, 90), 50)
+        self.text(max(self.hi_score), (720, 90), 50)
         self.text("SCORE", (660, 130), 50)
-        self.text(self.score, (760, 170), 50)
+        self.text(self.score, (720, 170), 50)
         if not self.start and not self.gameover:
-            self.text("Press enter to start", (150, HEIGHT//2-10), 50)
+            if self.state == 4:
+                self.state = 0
+            if self.state == 0:
+                self.text(">Start<", (324, (HEIGHT//2)-60), 50)
+            else:
+                self.text("Start", (330, (HEIGHT//2)-60), 50)
+            if self.state == 1:
+                self.text(">Multiplayer<", (254, (HEIGHT//2)), 50)
+            else:
+                self.text("Multiplayer", (260, (HEIGHT//2)), 50)
+            if self.state == 2:
+                self.text(">Settings<", (294, (HEIGHT//2)+60), 50)
+            else:
+                self.text("Settings", (300, (HEIGHT//2)+60), 50)
         elif self.gameover:
             self.text("Press enter to restart", (150, HEIGHT//2-10), 50)
         if self.gameover:
+            self.play_demo()
             self.text("Game Over", (WIDTH//2-120, HEIGHT//2-100), 50)
             self.hi_score.append(self.score)
             json.dump(self.hi_score, open("score.json", 'w'))
@@ -110,16 +127,28 @@ class starship:
             
     def move(self):
         keys = self.pygame.key.get_pressed()
+        if keys[self.pygame.K_UP] and not self.start:
+            self.state += 1
+        if keys[self.pygame.K_ESCAPE]:
+            sys.exit()
         if keys[self.pygame.K_UP] and self.start and self.movement == False and self.shoot == False:
             self.shoot = True
         if keys[self.pygame.K_SPACE] and self.start and self.movement == False and self.shoot == False:
             self.shoot = True
-        if keys[self.pygame.K_RETURN]:
+        if keys[self.pygame.K_RETURN] and self.gameover:
+            self.score = 0
+            self.x = SX
+            self.y = SY
+            self.stat(True)
+            self.a.create()
+            self.bullets = []
+            self.gameover = False
+        elif keys[self.pygame.K_RETURN]:
             self.stat(True)
         if keys[self.pygame.K_LEFT] and self.x >= SPEED and self.start:
             self.x -= SPEED
             self.movement = True
-        elif keys[self.pygame.K_RIGHT] and self.x <= WIDTH-55 and self.start:
+        elif keys[self.pygame.K_RIGHT] and self.x <= 530 and self.start:
             self.x += SPEED
             self.movement = True
         else:
