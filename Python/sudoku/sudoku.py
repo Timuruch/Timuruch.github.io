@@ -3,6 +3,12 @@ from tkinter import *
 import threading
 import time
 
+#Sudoku Sudoku Class
+#By Timuruch
+#timuruch.github.io/Python/sudoku/
+#Version: Alpha 1.0
+
+
 class Sudoku:
     def __init__(self, canvas, tk, sudoku):
         self.canvas = canvas

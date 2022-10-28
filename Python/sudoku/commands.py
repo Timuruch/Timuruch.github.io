@@ -9,6 +9,12 @@ canvas = 0
 tk = 0
 s = 0
 
+#Sudoku Game Commands
+#By Timuruch
+#timuruch.github.io/Python/sudoku/
+#Version: Alpha 1.0
+
+
 def set_vars(c, t):
     global canvas, tk, label
     canvas = c
