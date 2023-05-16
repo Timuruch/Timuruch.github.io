@@ -33,7 +33,6 @@ class snake:
                         d = self.buffer[2]
                     except:
                         d = True
-                    if d
                     self.buffer[i] = (x+SIZE, y)
                 self.counter = 0
             elif self.xd == False:
