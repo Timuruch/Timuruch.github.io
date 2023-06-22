@@ -47,24 +47,25 @@ class Network:
             self.s.sendall(text.encode())
     
     def check(self):
-        if self.i == 9:
-            last = self.list(len(self.list)-1)
-            for x in range(len(self.list) - 1):
-                self.list(x).destroy()
-            self.i = 1
-            self.y = 60
-            self.list = []
-            self.list.append(last)
-            last['y'] = 40
+        while self.run:
+            if self.i == 20:
+                last = self.list[int(len(self.list))-1]
+                for x in range(len(self.list) - 1):
+                    self.list[x].destroy()
+                self.i = 1
+                self.y = 60
+                self.list = []
+                self.list.append(last)
+                last.place(x=self.x, y=40)
     
     def client_show(self):
         while self.run:
             data = self.s.recv(1024)
-            #print(data.decode())
             l = Label(self.tk, text=data.decode())
             l.place(x=self.x, y=self.y)
             self.y += 20
             self.i += 1
+            self.list.append(l)
             if self.tk.state()=="iconic":
                 threading.Thread(target=self.notification, args = (data.decode(), )).start()
     
