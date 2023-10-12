@@ -7,7 +7,7 @@ function buy(){
     console.log(on);
     const new_product ={
         name:  document.getElementById("name").value,
-        cv: document.getElementById("cv").value,
+        street: document.getElementById("cv").value,
         price: on,
         count: document.getElementById("count").value,
         phone: document.getElementById("phone").value,

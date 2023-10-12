@@ -24,7 +24,7 @@ function show(){
         products_html +=
         `
         <div class="card" style="width: 18rem;margin-top: 120px;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src=${products[index].image} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${products[index].name}</h5>
                 <p class="card-text">${products[index].price}UAH</p>

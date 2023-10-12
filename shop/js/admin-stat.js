@@ -1,9 +1,9 @@
 
 function refresh(){
-    displayMessage('message-warning', 'Admin', 'Сторінка перезапустится через 4 секунди', 4000);
+    displayMessage('message-warning', 'Admin', 'Сторінка перезапустится через 2 секунди', 2000);
     setTimeout(function (){
         location.reload();
-    }, 4000);
+    }, 2000);
     
 }
 
