@@ -1,6 +1,7 @@
 import pygame
 from background import *
 from debug import *
+from bird import *
 from settings import *
 
 pygame.init()
@@ -10,6 +11,7 @@ clock = pygame.time.Clock()
 
 d = debug(w, pygame, clock)
 bg = background(pygame, w)
+b = bird(pygame, w)
 y = True
 
 while y:
@@ -21,6 +23,8 @@ while y:
     w.fill((255, 255, 255))
     
     bg.draw()
+    bg.run = b.draw()
+    b.move()
 
     d.draw()
     clock.tick(FPS)
