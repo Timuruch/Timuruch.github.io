@@ -1,8 +1,0 @@
-{
-    "tutorial" : "tutor_menu()" ,
-    "help" : "print('Hello')",
-    "tnps" : "import tnps",
-    "store" : "print('Egg')",
-    "updmng" : "print('Update manager')",
-    "settings" : "print('Settings')"
-}
